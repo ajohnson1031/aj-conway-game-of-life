@@ -1,0 +1,197 @@
+div.main-wrapper {
+  width: fit-content;
+  height: auto;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  div.header-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    .inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      div.controls {
+        padding: 15px 15px 10px;
+        border: 1px solid white;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+        text-decoration: underline;
+      }
+
+      label {
+        display: flex;
+        margin: 8px 10px;
+
+        &:last-of-type {
+          margin-left: 10px;
+        }
+      }
+
+      label:nth-of-type(1) {
+        margin-left: 0;
+      }
+
+      .header-inputs {
+        display: flex;
+
+        .grid-input {
+          border: 1px solid black;
+          border-radius: 4px;
+          padding-left: 6px;
+          width: 50px;
+        }
+
+        .speed {
+          text-align: right;
+          padding-right: 6px;
+        }
+
+        .resize-button,
+        .speed-button {
+          margin-left: 10px;
+          width: max-content;
+        }
+
+        p {
+          margin: 8px 3px;
+        }
+
+        button {
+          border: none;
+          border-radius: 4px;
+        }
+
+        .resize-button {
+          background-color: orangered;
+          color: white;
+
+          &:hover {
+            background-color: darken(orangered, 10%);
+          }
+        }
+
+        .speed-button {
+          background-color: darkcyan;
+          color: white;
+
+          &:hover {
+            background-color: darken(darkcyan, 5%);
+          }
+        }
+      }
+
+      .header-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0 0;
+
+        button {
+          height: 27px;
+          border: none;
+          border-radius: 4px;
+        }
+        .stop-button,
+        .reset-button {
+          margin-left: 10px;
+        }
+
+        .skip-button {
+          margin-right: 10px;
+        }
+
+        span.gen {
+          font-weight: bold;
+          display: inline-block;
+          padding: 8px 12px;
+          background-color: black;
+          margin-top: -8px;
+          border-radius: 4px;
+        }
+
+        p {
+          margin: 8px 10px;
+        }
+
+        .start-button {
+          background-color: lighten(green, 5%);
+          color: white;
+
+          &:hover {
+            background-color: darken(green, 2.5%);
+          }
+        }
+
+        .stop-button {
+          background-color: darken(@lightred, 30%);
+          color: white;
+
+          &:hover {
+            background-color: darken(@lightred, 50%);
+          }
+        }
+
+        .reset-button,
+        .skip-button,
+        .skip-ten-button {
+          &:hover {
+            background-color: silver;
+          }
+        }
+      }
+
+      .message {
+        padding: 8px 15px;
+        text-align: center;
+        margin: 5px 0;
+      }
+
+      .green {
+        background-color: rgba(lightgreen, 0.35);
+        border: 2px solid lightgreen;
+        color: lighten(lightgreen, 15%);
+      }
+
+      .red {
+        background-color: rgba(red, 0.25);
+        border: 2px solid @lightred;
+        color: @lightred;
+      }
+
+      .yellow {
+        background-color: rgba(yellow, 0.1);
+        border: 2px solid lighten(@lightyellow, 10%);
+        color: lighten(@lightyellow, 10%);
+      }
+    }
+  }
+
+  div.board-container {
+    display: flex;
+    flex: 1;
+    border-right: 1px solid silver;
+    border-bottom: 1px solid silver;
+
+    .live-cell,
+    .dead-cell {
+      display: flex;
+      flex: 1;
+      padding: 4px;
+      border-top: 1px solid silver;
+      border-left: 1px solid silver;
+    }
+
+    .live-cell {
+      background-color: lighten(yellow, 20%);
+    }
+  }
+}

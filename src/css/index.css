@@ -1,0 +1,312 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  font-size: 62.5%;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  box-sizing: border-box;
+}
+div.main-wrapper {
+  width: fit-content;
+  height: auto;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+div.main-wrapper div.header-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+div.main-wrapper div.header-container .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+div.main-wrapper div.header-container .inner div.controls {
+  padding: 15px 15px 10px;
+  border: 1px solid white;
+}
+div.main-wrapper div.header-container .inner h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-decoration: underline;
+}
+div.main-wrapper div.header-container .inner label {
+  display: flex;
+  margin: 8px 10px;
+}
+div.main-wrapper div.header-container .inner label:last-of-type {
+  margin-left: 10px;
+}
+div.main-wrapper div.header-container .inner label:nth-of-type(1) {
+  margin-left: 0;
+}
+div.main-wrapper div.header-container .inner .header-inputs {
+  display: flex;
+}
+div.main-wrapper div.header-container .inner .header-inputs .grid-input {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding-left: 6px;
+  width: 50px;
+}
+div.main-wrapper div.header-container .inner .header-inputs .speed {
+  text-align: right;
+  padding-right: 6px;
+}
+div.main-wrapper div.header-container .inner .header-inputs .resize-button,
+div.main-wrapper div.header-container .inner .header-inputs .speed-button {
+  margin-left: 10px;
+  width: max-content;
+}
+div.main-wrapper div.header-container .inner .header-inputs p {
+  margin: 8px 3px;
+}
+div.main-wrapper div.header-container .inner .header-inputs button {
+  border: none;
+  border-radius: 4px;
+}
+div.main-wrapper div.header-container .inner .header-inputs .resize-button {
+  background-color: orangered;
+  color: white;
+}
+div.main-wrapper div.header-container .inner .header-inputs .resize-button:hover {
+  background-color: #cc3700;
+}
+div.main-wrapper div.header-container .inner .header-inputs .speed-button {
+  background-color: darkcyan;
+  color: white;
+}
+div.main-wrapper div.header-container .inner .header-inputs .speed-button:hover {
+  background-color: #007172;
+}
+div.main-wrapper div.header-container .inner .header-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 0;
+}
+div.main-wrapper div.header-container .inner .header-buttons button {
+  height: 27px;
+  border: none;
+  border-radius: 4px;
+}
+div.main-wrapper div.header-container .inner .header-buttons .stop-button,
+div.main-wrapper div.header-container .inner .header-buttons .reset-button {
+  margin-left: 10px;
+}
+div.main-wrapper div.header-container .inner .header-buttons .skip-button {
+  margin-right: 10px;
+}
+div.main-wrapper div.header-container .inner .header-buttons span.gen {
+  font-weight: bold;
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: black;
+  margin-top: -8px;
+  border-radius: 4px;
+}
+div.main-wrapper div.header-container .inner .header-buttons p {
+  margin: 8px 10px;
+}
+div.main-wrapper div.header-container .inner .header-buttons .start-button {
+  background-color: #009a00;
+  color: white;
+}
+div.main-wrapper div.header-container .inner .header-buttons .start-button:hover {
+  background-color: #007300;
+}
+div.main-wrapper div.header-container .inner .header-buttons .stop-button {
+  background-color: #ff3333;
+  color: white;
+}
+div.main-wrapper div.header-container .inner .header-buttons .stop-button:hover {
+  background-color: #cc0000;
+}
+div.main-wrapper div.header-container .inner .header-buttons .reset-button:hover,
+div.main-wrapper div.header-container .inner .header-buttons .skip-button:hover,
+div.main-wrapper div.header-container .inner .header-buttons .skip-ten-button:hover {
+  background-color: silver;
+}
+div.main-wrapper div.header-container .inner .message {
+  padding: 8px 15px;
+  text-align: center;
+  margin: 5px 0;
+}
+div.main-wrapper div.header-container .inner .green {
+  background-color: rgba(144, 238, 144, 0.35);
+  border: 2px solid lightgreen;
+  color: #d2f8d2;
+}
+div.main-wrapper div.header-container .inner .red {
+  background-color: rgba(255, 0, 0, 0.25);
+  border: 2px solid #ffcccc;
+  color: #ffcccc;
+}
+div.main-wrapper div.header-container .inner .yellow {
+  background-color: rgba(255, 255, 0, 0.1);
+  border: 2px solid #ffff99;
+  color: #ffff99;
+}
+div.main-wrapper div.board-container {
+  display: flex;
+  flex: 1;
+  border-right: 1px solid silver;
+  border-bottom: 1px solid silver;
+}
+div.main-wrapper div.board-container .live-cell,
+div.main-wrapper div.board-container .dead-cell {
+  display: flex;
+  flex: 1;
+  padding: 4px;
+  border-top: 1px solid silver;
+  border-left: 1px solid silver;
+}
+div.main-wrapper div.board-container .live-cell {
+  background-color: #ffff66;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 0.85rem;
+  color: white;
+  background-color: #343434;
+}
+body #root,
+html #root {
+  width: inherit;
+  height: inherit;
+}
+body #root .App,
+html #root .App {
+  width: inherit;
+  height: inherit;
+}
+body #root .App button,
+html #root .App button {
+  cursor: pointer;
+  padding: 0 12px;
+}
