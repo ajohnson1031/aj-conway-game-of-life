@@ -41,13 +41,17 @@ export default class App extends Component {
   handleColumnChange(size) {
     if (!this.state.isRunning) {
       let actualSize = this.state.size;
-      actualSize[0] = size[0];
+      if (size[0] < 65) {
+        this.setState({ message: "Column width minimum is 65", color: "red" });
+      } else {
+        actualSize[0] = size[0];
 
-      this.setState({
-        size: actualSize,
-        message: `Grid now has ${actualSize[1]} rows and ${actualSize[0]} columns`,
-        color: "green",
-      });
+        this.setState({
+          size: actualSize,
+          message: `Grid now has ${actualSize[1]} rows and ${actualSize[0]} columns`,
+          color: "green",
+        });
+      }
     }
   }
 
