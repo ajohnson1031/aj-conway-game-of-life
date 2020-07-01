@@ -57,9 +57,20 @@ export default class App extends Component {
 
   startGame() {
     if (!this.state.isRunning) {
-      this.setState({ isRunning: true, message: null }, () => {
-        this.intervalRef = setInterval(() => this.runGame(), this.state.speed);
-      });
+      let currentCells = this.state.universe.getLiveCells();
+      if (currentCells.size <= 0) {
+        this.setState({
+          message: "Please select cells in the grid below to run sim.",
+          color: "red",
+        });
+      } else {
+        this.setState({ isRunning: true, message: null }, () => {
+          this.intervalRef = setInterval(
+            () => this.runGame(),
+            this.state.speed
+          );
+        });
+      }
     }
   }
 
