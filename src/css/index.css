@@ -284,7 +284,7 @@ div.main-wrapper div.board-container .dead-cell {
   border-left: 1px solid silver;
 }
 div.main-wrapper div.board-container .live-cell {
-  background-color: #ffff66;
+  background-color: white;
 }
 body,
 html {
