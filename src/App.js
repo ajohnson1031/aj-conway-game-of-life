@@ -16,6 +16,7 @@ export default class App extends Component {
       speed: initialState.speed,
       message: initialState.message,
       color: initialState.color,
+      random: null,
     };
     this.handleColumnChange = this.handleColumnChange.bind(this);
     this.handleRowChange = this.handleRowChange.bind(this);
@@ -192,11 +193,12 @@ export default class App extends Component {
       isRunning: initialState.isRunning,
       message: null,
       speed: initialState.speed,
+      random: null,
     });
   }
 
   generateRandom() {
-    if (!this.state.isRunning) {
+    if (!this.state.isRunning && this.state.random == null) {
       let totalCells = this.state.size[0] * this.state.size[1];
       let randomCells = totalCells / 10;
       let count = 0;
@@ -216,6 +218,7 @@ export default class App extends Component {
         isRunning: this.state.isRunning,
         message: null,
         speed: this.state.speed,
+        random: true,
       });
 
       this.renderBoard();
