@@ -211,6 +211,7 @@ div.main-wrapper div.header-container .inner .header-buttons button {
   height: 27px;
   border: none;
   border-radius: 4px;
+  outline: none;
 }
 div.main-wrapper div.header-container .inner .header-buttons .stop-button,
 div.main-wrapper div.header-container .inner .header-buttons .reset-button {
@@ -248,6 +249,15 @@ div.main-wrapper div.header-container .inner .header-buttons .reset-button:hover
 div.main-wrapper div.header-container .inner .header-buttons .skip-button:hover,
 div.main-wrapper div.header-container .inner .header-buttons .skip-ten-button:hover {
   background-color: silver;
+}
+div.main-wrapper div.header-container .inner .random-seed {
+  height: 27px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  margin-top: 15px;
+  width: 100%;
+  background-color: #ffba00;
 }
 div.main-wrapper div.header-container .inner .message {
   padding: 8px 15px;
