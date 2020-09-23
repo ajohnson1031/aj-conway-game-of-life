@@ -8,8 +8,6 @@ Conway's game of life is a well-known algorithm that makes use of an easy-to-fol
 
 The idea is mainly to display an algorithmic process in action in an optimized way. This project is a test of skill for a developer, and I am passionate about improving my skillset through learning.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 <br>
 
 ## Build Status
@@ -26,6 +24,33 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Screenshots
 
-<img src="./imgs/screenshot.png" alt="Game of Life Screenshot">
+<img src="https://raw.githubusercontent.com/ajohnson1031/aj-conway-game-of-life/master/src/imgs/screenshot.png" alt="Game of Life Screenshot">
 
 <br>
+
+## Tech/Framework Used
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). LESS (CSS) styling.
+
+## Features
+
+Apart from the visualization, several additional features were added to make this project more user-friendly.
+
+- Users are able to change the size of the grid by altering row/column count
+- Users may also change speed of simulation (sim must be stopped)
+- Users may skip generations to speed up the end result display (sim must be stopped)
+- Users may randomize the grid seed with the press of a button
+
+A very easily understandable UI interface allows for use of all functionality within the app.
+
+<br>
+
+## Installation
+
+Installing is easy. Simply fork and clone the project to your Mac/PC, run `yarn` to install dependencies and initialize the project with `yarn start`.
+
+<br>
+
+## Contribute
+
+One additional feature which may be added is a dropdown of Conway figures (glider, spaceship, etc.) with which the grid may initially be seeded.
