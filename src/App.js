@@ -17,6 +17,7 @@ export default class App extends Component {
       message: initialState.message,
       color: initialState.color,
       random: null,
+      intervalRef: null,
     };
     this.handleColumnChange = this.handleColumnChange.bind(this);
     this.handleRowChange = this.handleRowChange.bind(this);
@@ -66,22 +67,22 @@ export default class App extends Component {
           color: "red",
         });
       } else {
-        this.setState({ isRunning: true, message: null }, () => {
-          this.intervalRef = setInterval(
-            () => this.runGame(),
-            this.state.speed
-          );
+        this.setState({
+          isRunning: true,
+          message: null,
+          intervalRef: setInterval(() => this.runGame(), this.state.speed),
         });
       }
     }
   }
 
   stopGame() {
-    clearInterval(this.intervalRef);
+    clearInterval(this.state.intervalRef);
     this.setState({
       isRunning: false,
       message: `Your sim ran a total of ${this.state.universe.getGeneration()} times.`,
       color: "green",
+      intervalRef: null,
     });
   }
 
