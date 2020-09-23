@@ -17,6 +17,7 @@ const Header = ({
   color,
   skipGeneration,
   skipTenGenerations,
+  generateRandom,
   renderBoard,
 }) => {
   return (
@@ -40,6 +41,9 @@ const Header = ({
             skipGeneration={skipGeneration}
             skipTenGenerations={skipTenGenerations}
           />
+          <button className='random-seed' onClick={generateRandom}>
+            Generate Random Seed
+          </button>
           {message && <Message message={message} color={color} />}
         </div>
       </div>

@@ -16,6 +16,8 @@ export default class App extends Component {
       speed: initialState.speed,
       message: initialState.message,
       color: initialState.color,
+      random: null,
+      intervalRef: null,
     };
     this.handleColumnChange = this.handleColumnChange.bind(this);
     this.handleRowChange = this.handleRowChange.bind(this);
@@ -27,6 +29,7 @@ export default class App extends Component {
     this.changeSpeed = this.changeSpeed.bind(this);
     this.skipGeneration = this.skipGeneration.bind(this);
     this.skipTenGenerations = this.skipTenGenerations.bind(this);
+    this.generateRandom = this.generateRandom.bind(this);
   }
 
   handleRowChange(size) {
@@ -41,35 +44,46 @@ export default class App extends Component {
   handleColumnChange(size) {
     if (!this.state.isRunning) {
       let actualSize = this.state.size;
-      actualSize[0] = size[0];
+      if (size[0] < 65) {
+        this.setState({ message: "Column width minimum is 65", color: "red" });
+      } else {
+        actualSize[0] = size[0];
 
-      this.setState({
-        size: actualSize,
-        message: `Grid now has ${actualSize[1]} rows and ${actualSize[0]} columns`,
-        color: "green",
-      });
+        this.setState({
+          size: actualSize,
+          message: `Grid now has ${actualSize[1]} rows and ${actualSize[0]} columns`,
+          color: "green",
+        });
+      }
     }
   }
 
   startGame() {
     if (!this.state.isRunning) {
-      this.setState({ isRunning: true, message: null }, () => {
-        this.intervalRef = setInterval(() => this.runGame(), this.state.speed);
-      });
+      let currentCells = this.state.universe.getLiveCells();
+      if (currentCells.size <= 0) {
+        this.setState({
+          message: "Please select cells in the grid below to run sim.",
+          color: "red",
+        });
+      } else {
+        this.setState({
+          isRunning: true,
+          message: null,
+          intervalRef: setInterval(() => this.runGame(), this.state.speed),
+        });
+      }
     }
   }
 
   stopGame() {
-    this.setState(
-      {
-        isRunning: false,
-        message: `Your sim ran a total of ${this.state.universe.getGeneration()} times.`,
-        color: "green",
-      },
-      () => {
-        clearInterval(this.intervalRef);
-      }
-    );
+    clearInterval(this.state.intervalRef);
+    this.setState({
+      isRunning: false,
+      message: `Your sim ran a total of ${this.state.universe.getGeneration()} times.`,
+      color: "green",
+      intervalRef: null,
+    });
   }
 
   changeSpeed(newSpeed, newColor) {
@@ -169,7 +183,6 @@ export default class App extends Component {
       );
       cellRow = [];
     }
-
     return newGrid;
   }
 
@@ -181,7 +194,36 @@ export default class App extends Component {
       isRunning: initialState.isRunning,
       message: null,
       speed: initialState.speed,
+      random: null,
     });
+  }
+
+  generateRandom() {
+    if (!this.state.isRunning && this.state.random == null) {
+      let totalCells = this.state.size[0] * this.state.size[1];
+      let randomCells = totalCells / 10;
+      let count = 0;
+
+      while (count < randomCells) {
+        if (!this.state.universe.liveCells[count]) {
+          let row = Math.floor(Math.random() * this.state.size[0]);
+          let col = Math.floor(Math.random() * this.state.size[1]);
+          this.state.universe.addCell({ x: row, y: col });
+        }
+        count += 1;
+      }
+
+      this.setState({
+        universe: new Universe(0, this.state.universe.liveCells),
+        size: this.state.size,
+        isRunning: this.state.isRunning,
+        message: null,
+        speed: this.state.speed,
+        random: true,
+      });
+
+      this.renderBoard();
+    }
   }
 
   render() {
@@ -204,6 +246,7 @@ export default class App extends Component {
               color={this.state.color}
               skipGeneration={this.skipGeneration}
               skipTenGenerations={this.skipTenGenerations}
+              generateRandom={this.generateRandom}
               message={this.state.message}
             />,
             <BoardContainer

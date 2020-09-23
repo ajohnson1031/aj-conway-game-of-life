@@ -1,3 +1,9 @@
+# Conway's Game of Life - AJ Edition
+
+## Motivation
+
+Conway's game of life is a well-known algorithm that makes use of an easy-to-follow deterministic pattern moving cells on a grid through the life/death cycle via a preconfigured set of parameters. My visualization allows an end-user to view an animation of this pattern by selecting their own patterns on the grid, or by generating a randomized start pattern.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
